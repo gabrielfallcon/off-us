@@ -35,7 +35,6 @@ export const BannerSection = styled.section`
     background-size: cover;
     background-attachment: fixed;
     margin-top: 80px;
-    /* background: #ffffff; */
 
     &:before {
       content: '';
@@ -278,18 +277,61 @@ export const Section = styled.section`
       margin: 24px 0 40px;
     }
   }
-  .collections-hotel {
+  .content-show-card {
     width: 100%;
-    display: flex;
+    min-height: 60vh;
+    position: relative;
+
+    &--loading {
+      width: 100%;
+      max-width: 280px;
+      height: 100%;
+      max-height: 280px;
+      display: flex;
+      align-items: center;
       justify-content: center;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 56px 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 300ms;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -50%);
 
-    @media (min-width: 1000px) {
-      justify-content: flex-start;
+      &.show-loading {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        pointer-events: visible;
+      }
+
+      @media (min-width: 1000px) {
+        max-width: 300px;
+        max-height: 300px;
+      }
     }
+    .collections-hotel {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      gap: 56px 16px;
+      opacity: 0;
+      transform: translateY(-40px);
+      pointer-events: none;
+      transition: 300ms;
 
+      &.show-hotel {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: visible;
+      }
+
+      @media (min-width: 1000px) {
+        min-height: 40vh;
+        justify-content: flex-start;
+      }
+    }
   }
 `;
 export const Footer = styled.footer`

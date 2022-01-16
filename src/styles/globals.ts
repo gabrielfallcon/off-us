@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   html,
   body {
     font-family:  sans-serif;
+    scroll-behavior: smooth;
   }
   a {
     color: inherit;

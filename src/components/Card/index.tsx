@@ -1,65 +1,43 @@
-import clsx from 'clsx';
 import { CardContainer} from './card';
-import {
-  FiAlertCircle,
-  FiMenu,
-  FiX
-} from 'react-icons/fi';
+import Image from 'next/image';
+import { FiX } from 'react-icons/fi';
+import { IProductProps } from '../../types/Product';
 
-
-
-export const Card = () => {
+export const Card = ({...props}: IProductProps) => {
   return (
     <CardContainer>
       <div className='flag-discount'>
-        <span>25% Off</span>
+        <span>{props.discount} Off</span>
       </div>
 
-      <img 
-        src='images/hotel-card.jpg' 
+      <Image 
+        src={`${props.images}`} 
         className='img-card'
         alt='Hotel'
       />
 
       <div className='content-info'>
         <h1 className='content-info__title'>
-          Mansão em Orlando
+          {props.name}
         </h1>
         <p className='content-info__description'>
-          Proximo a praia mais visitada de Orlando
+          {props.description}
         </p>
-
         <div className='content-info__accommodation'>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>Cama</span>
-          </div>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>Wifi</span>
-          </div>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>Rede</span>
-          </div>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>TV</span>
-          </div>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>Suite</span>
-          </div>
-          <div className='accommodation-item'>
-            <FiX color='#c9ced6' size={12}/> 
-            <span>Piscina</span>
-          </div>
+          {props.accommodation.map((content, index: number) => {
+            return (
+              <div className='accommodation-item' key={index}>
+                <FiX color='#c9ced6' size={12}/> 
+                <span>{content.name}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     
       <div className='content-price'>
         <p className='price'>
-          $55<span>/Night</span>
+          ${props.priceNight}<span>/Night</span>
         </p>
 
         <button className='btn-view'>
