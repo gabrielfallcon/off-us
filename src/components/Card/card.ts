@@ -34,7 +34,7 @@ export const CardContainer = styled.div`
     margin-bottom: 24px;
     box-shadow: 0 19px 16px rgba(68, 68, 68, .2);
 
-    position: absolute; 
+    position: inherit; 
     inset: none !important;
     margin: none !important; 
     display: flex !important;
