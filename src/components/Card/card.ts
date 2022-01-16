@@ -33,6 +33,15 @@ export const CardContainer = styled.div`
     height: 150px !important;
     margin-bottom: 24px;
     box-shadow: 0 19px 16px rgba(68, 68, 68, .2);
+
+    position: absolute; 
+    inset: none !important;
+    margin: none !important; 
+    display: flex !important;
+    min-width: auto !important;
+    max-width: auto !important;
+    min-height: auto !important;
+    max-height: auto !important;
   }
   .content-info {
     display: flex;
