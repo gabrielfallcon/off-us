@@ -21,6 +21,7 @@ export const CardContainer = styled.div`
     position: absolute;
     top: calc(16px + 8px);
     right: calc(16px + 8px);
+    z-index: 600;
     
     span {
       font-size: 10px;
@@ -30,11 +31,9 @@ export const CardContainer = styled.div`
   }
   .img-card {
     width: 100% !important;
-    height: 150px !important;
     margin-bottom: 24px;
     box-shadow: 0 19px 16px rgba(68, 68, 68, .2);
 
-    position: inherit !important; 
     inset: none !important;
     margin: none !important; 
     display: flex !important;

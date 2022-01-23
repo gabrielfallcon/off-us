@@ -3,18 +3,27 @@ import Image from 'next/image';
 import { FiX } from 'react-icons/fi';
 import { IProductProps } from '../../types/Product';
 
-export const Card = ({...props}: IProductProps) => {
+interface ICardProps extends IProductProps {
+  handleViewProduct?: () => void;
+}
+
+export const Card = ({...props}: ICardProps) => {
   return (
     <CardContainer>
-      <div className='flag-discount'>
-        <span>{props.discount} Off</span>
-      </div>
+      {props.discount && (
+        <div className='flag-discount'>
+          <span>{props.discount} Off</span>
+        </div>
+      )}
 
-      <Image 
-        src={`${props.images}`} 
-        className='img-card'
-        alt='Hotel'
-      />
+      <div className="img-card">
+        <Image 
+          src={`${props.images}`} 
+          width={238}
+          height={160}
+          alt='Hotel'
+        />
+      </div>
 
       <div className='content-info'>
         <h1 className='content-info__title'>
@@ -40,7 +49,7 @@ export const Card = ({...props}: IProductProps) => {
           ${props.priceNight}<span>/Night</span>
         </p>
 
-        <button className='btn-view'>
+        <button className='btn-view' onClick={props.handleViewProduct}>
           View Availabillity
         </button>
       </div>

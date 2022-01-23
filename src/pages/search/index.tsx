@@ -1,25 +1,20 @@
-import { useState, useEffect, FormEvent } from 'react';
-import { GetServerSideProps } from 'next'
+import { useState, FormEvent } from 'react';
+import Router from 'next/router';
 import clsx from 'clsx';
-import { Link, animateScroll, Button } from 'react-scroll';
-import api from '../server/api';
+import api from '../../server/api';
 import Lottie, { Options } from 'react-lottie';
-import animationData from '../lottiefile/animation.json';
-import Head from 'next/head'
-import { Header, HeaderMob, Card } from '../components';
+import animationData from '../../lottiefile/animation.json';
+import Head from 'next/head';
+import { Card } from '../../components'; 
 import { FiUsers, FiRepeat, FiSearch, FiMapPin, FiDollarSign } from 'react-icons/fi'
-import { IProductProps, CityOptions } from '../types/Product';
-import { Container, Main, BannerSection, Section, Footer } from '../styles/home';
-
+import { IProductProps, CityOptions } from '../../types/Product';
+import styles from '../../styles/search/search.module.scss';
 
 const Home = () => {
-  const [showMenuMob, setShowMenuMob] = useState<boolean>(false);
   const [isShowHotel, setShowHotel] = useState<boolean>(false);
   const [isShowLoading, setShowLoading] = useState<boolean>(false);
 
   const [data, setData] = useState<Array<IProductProps>>([]);
-
-  console.log(data);
 
   const [inputCity, setInputCity] = useState('');
   const [inputBasePrice, setInputBasePrice] = useState('');
@@ -32,10 +27,6 @@ const Home = () => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice'
     }
-  }
-
-  const handleShowMenuMob = () => {
-    setShowMenuMob(!showMenuMob);
   }
 
   const handleShowHotel = () => {
@@ -80,38 +71,38 @@ const Home = () => {
     resetInputs();
   }
 
+  const handleViewProduct = (id: string) => {
+    Router.push(`/search/${id}`);
+  }
+
   return (
-    <Container>
+    <div className={styles.container}>
       <Head>
         <title>Home</title>
       </Head>
-      
-      <Header />
 
-      <HeaderMob isMenuActive={showMenuMob} handleHeaderMenu={handleShowMenuMob} />
-
-      <Main>
-        <BannerSection>
-          <div className='content-block-text'>
-            <h1 className='content-block-text__title'>
+      <main className={styles.main}>
+        <section className={styles.bannerSection}>
+          <div className={styles.contentBlockText}>
+            <h1 className={styles.contentBlockTextTitle}>
               Stress is good, be happy!
             </h1>
 
-            <p className='content-block-text__description'>
+            <p className={styles.contentBlockTextDescription}>
               Find a place where your employees remember the company they work for!
             </p>
           </div>
 
           <form action="POST" onSubmit={handleSearch}>
-            <div className='content-inputs'>
-              <div className='content-inputs__box'>
-                <div className="content-icon">
+            <div className={styles.contentInputs}>
+              <div className={styles.contentInputsBox}>
+                <div className={styles.contentIcon}>
                   <FiRepeat color='#191919'/>
                 </div>
-                <div className="box-item">
+                <div className={styles.boxItem}>
                   <label>City</label>
 
-                  <div className='box-input'>
+                  <div className={styles.boxInput}>
                     <FiMapPin color="#191919"/>
 
                     <input 
@@ -123,10 +114,10 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className="box-item">
+                <div className={styles.boxItem}>
                   <label>Media de valor/noite</label>
 
-                  <div className='box-input'>
+                  <div className={styles.boxInput}>
                     <FiDollarSign color="#191919"/>
 
                     <input 
@@ -140,11 +131,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className='content-inputs__box small'>
-                <div className="box-item">
+              <div className={clsx(styles.contentInputsBox, styles.small)}>
+                <div className={styles.boxItem}>
                   <label>People(s)</label>
 
-                  <div className='box-input'>
+                  <div className={styles.boxInput}>
                     <FiUsers color="#191919"/>
 
                     <input 
@@ -158,23 +149,23 @@ const Home = () => {
                 </div>
               </div>
               
-              <button className='content-inputs__btn-search' type='submit'>
+              <button className={styles.contentInputsBtnSearch} type='submit'>
                 <FiSearch />
                 Search
               </button>
             </div>
           </form>
-        </BannerSection>
+        </section>
 
-        <Section id='container-hotel'>
-          <h1 className='content-title'>
+        <section className={styles.contentHotel} id='container-hotel'>
+          <h1 className={styles.contentHotelTitle}>
             Escolha um hotel e aproveite!
           </h1>
 
-          <div className="content-show-card">
+          <div className={styles.contentShowCard}>
             <div className={clsx(
-              'content-show-card--loading',
-              isShowLoading && 'show-loading'
+              styles.contentShowCardLoading,
+              isShowLoading && styles.showLoading
             )}>
               <Lottie
                 width='100%'
@@ -184,8 +175,8 @@ const Home = () => {
             </div>
 
             <div className={clsx(
-              'collections-hotel',
-              isShowHotel && 'show-hotel'
+              styles.collectionsHotel,
+              isShowHotel && styles.showHotel
             )}>
               {data.map(hotel => {
                 return (
@@ -200,18 +191,15 @@ const Home = () => {
                     id={hotel.id}
                     key={hotel.id}
                     capacity={hotel.capacity}
+                    handleViewProduct={() => handleViewProduct(hotel.id)}
                   />
                 )
               })}
             </div>
           </div>
-        </Section>  
-      </Main>
-
-      <Footer>
-        
-      </Footer>
-    </Container>
+        </section>  
+      </main>
+    </div>
   )
 }
 

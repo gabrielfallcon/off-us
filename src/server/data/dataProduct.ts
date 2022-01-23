@@ -17,7 +17,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 51,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 2
   },
   {
@@ -36,7 +36,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 150,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 9
   },
   {
@@ -55,7 +55,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 25,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 2
   },
   {
@@ -74,7 +74,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 160,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 15
   },
   {
@@ -93,7 +93,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 90,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 13
   },
   {
@@ -112,7 +112,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 86,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 8
   },
   {
@@ -131,7 +131,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 190,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 5
   },
   {
@@ -150,7 +150,7 @@ export const db: Array<IProductProps> = [
     ],
     priceNight: 100,
     // images: 'https://d2y4c6g7.stackpathcdn.com/wp-content/uploads/2016/01/hotel-orlando.jpg',
-    images: 'images/hotel-card.jpg',
+    images: '/images/hotel-card.jpg',
     capacity: 3
   }
 ];

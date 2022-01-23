@@ -1,0 +1,136 @@
+.productDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  position: relative;
+
+  @media (min-width: 1000px) {
+    padding: 80px 32px 0;
+  }
+
+  .productImage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 1000px) {
+      padding: 16px;
+    }
+
+    img {
+      width: 100%;
+
+      @media (min-width: 1000px) {
+        width: auto;
+        max-height: 70vh;
+      }
+    }
+  }
+
+  .productInfo {
+    display: flex;
+    position: relative;
+
+    .productInfoDescription {
+      width: 100%;
+      padding: 16px 16px 0; 
+
+      @media (min-width: 1000px) {
+        padding: 0;
+      }
+
+      .productInfoDescriptionTitle {
+        width: 100%;
+        max-width: 700px;
+        margin-bottom: 24px;
+        border-bottom: 1px solid #c9ced6;
+
+        @media (min-width: 1000px) {
+          padding: 24px 0;
+        }
+
+        .productInfoTitle {
+          font-size: 28px;
+          text-align: left;
+          margin-bottom: 8px;
+          color: #191919
+        }
+        .productInfoCapacity {
+          font-size: 16px;
+          color: #a6a9a9;
+        }
+      }
+      .productInfoDescriptionListAccommodations {
+        width: 100%;
+        list-style: none;  
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0; 
+
+        @media (min-width: 1000px) {
+          padding: 16px 16px 0;
+        }
+      }
+    }
+    .productInfoPrice {
+      height: 80px;
+      position: fixed;
+      background: #ffffff;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-top: 1px solid #c9ced6;
+
+      @media (min-width: 1000px) {
+        width: 100%;
+        max-width: 390px;
+        height: fit-content;
+        flex-direction: column;
+        border: 1px solid #c9ced6;
+        border-radius: 10px;
+        position: relative;
+        align-items: flex-start;
+        padding: 24px;
+        margin-top: 24px;
+        box-shadow: 3px 3px 40px rgba(68, 68, 68, .2);
+      }
+
+      .productInfoPriceValue {
+        font-size: 18px;
+        color: #191919;
+
+        @media (min-width: 1000px) {
+          margin-bottom: 16px;
+        }
+
+        span {
+          color: #c9ced6;
+        }
+      }
+      .btnBuyReservation {
+        width: 100%;
+        max-width: 160px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fa503f;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+
+        @media (min-width: 1000px) {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
